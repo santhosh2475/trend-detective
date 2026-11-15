@@ -27,11 +27,12 @@ SCALE = 4.6
 
 def geo_layout(fig, height=640):
     fig.update_geos(projection_type="orthographic", projection_rotation=dict(lon=107, lat=1),
-                    projection_scale=SCALE, showland=True, landcolor="#efeee9", showocean=True, oceancolor="#dde8f2",
-                    showcountries=True, countrycolor="#a9a8a0", countrywidth=0.6, coastlinecolor="#6d6c66",
+                    # dark-mode globe: land a step above the page, ocean a cool near-black, borders as hairlines
+                    projection_scale=SCALE, showland=True, landcolor="#1b1b1a", showocean=True, oceancolor="#0e1318",
+                    showcountries=True, countrycolor="#3a3a37", countrywidth=0.6, coastlinecolor="#5c5c58",
                     coastlinewidth=0.8, showlakes=False, resolution=50, showframe=False, bgcolor="rgba(0,0,0,0)",
-                    lataxis=dict(showgrid=True, gridcolor="#c9d6e3", dtick=10),
-                    lonaxis=dict(showgrid=True, gridcolor="#c9d6e3", dtick=10))
+                    lataxis=dict(showgrid=True, gridcolor="#1a2129", dtick=10),
+                    lonaxis=dict(showgrid=True, gridcolor="#1a2129", dtick=10))
     fig.update_layout(height=height, margin=dict(l=0, r=0, t=10, b=0), paper_bgcolor="rgba(0,0,0,0)",
                       font=dict(color=C.INK2, size=13), showlegend=False)
     return fig
@@ -89,20 +90,20 @@ if mode == "Time-lapse by year":
     bub = dict(lon=[centers[n][1] for n in FIRE_REGIONS], lat=[centers[n][0] for n in FIRE_REGIONS], mode="markers",
                hovertemplate="%{text}: %{customdata:,.0f} fire detections<extra></extra>",
                text=[C.SHORT[n] for n in FIRE_REGIONS])
-    fig.add_trace(go.Scattergeo(**bub, customdata=c0, marker=dict(**b0, color="rgba(235,104,52,0.55)",
+    fig.add_trace(go.Scattergeo(**bub, customdata=c0, marker=dict(**b0, color="rgba(217,89,38,0.55)",
                                                                    line=dict(color=C.ORANGE, width=2))))
     overlays(fig)
     fig.frames = [go.Frame(name=str(int(y)), traces=[0, 1],
                            data=[go.Scattergeo(marker={**mk, "color": cube[i][ok]}),
                                  go.Scattergeo(customdata=bubbles(int(y))[1],
-                                               marker=dict(**bubbles(int(y))[0], color="rgba(235,104,52,0.55)",
+                                               marker=dict(**bubbles(int(y))[0], color="rgba(217,89,38,0.55)",
                                                            line=dict(color=C.ORANGE, width=2)))])
                   for i, y in enumerate(years)]
     geo_layout(fig, 660)
     anim = dict(frame=dict(duration=650, redraw=True), transition=dict(duration=0), fromcurrent=True)
     fig.update_layout(
         updatemenus=[dict(type="buttons", direction="left", x=0.02, y=0.04, xanchor="left", yanchor="bottom",
-                          showactive=False, bgcolor="#ffffff", bordercolor=C.AXIS, font=dict(color=C.INK),
+                          showactive=False, bgcolor=C.PANEL, bordercolor=C.AXIS, font=dict(color=C.INK),
                           buttons=[dict(label="Play", method="animate", args=[None, anim]),
                                    dict(label="Pause", method="animate",
                                         args=[[None], dict(frame=dict(duration=0, redraw=False), mode="immediate")])])],

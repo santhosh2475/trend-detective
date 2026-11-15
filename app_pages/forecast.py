@@ -124,7 +124,7 @@ fig = go.Figure()
 h = hist.iloc[-84:]
 fig.add_trace(go.Scatter(x=fc.index, y=fc["hi"], mode="lines", line=dict(width=0), showlegend=False, hoverinfo="skip"))
 fig.add_trace(go.Scatter(x=fc.index, y=fc["lo"], mode="lines", line=dict(width=0), fill="tonexty",
-                         fillcolor="rgba(235,104,52,0.18)", name="80% range", hoverinfo="skip"))
+                         fillcolor="rgba(217,89,38,0.18)", name="80% range", hoverinfo="skip"))
 fig.add_trace(go.Scatter(x=h.index, y=h, mode="lines", line=dict(color=C.BLUE, width=2), name="Observed",
                          hovertemplate="%{y:.3g}<extra></extra>"))
 fig.add_trace(go.Scatter(x=fc.index, y=fc["climatology"], mode="lines", line=dict(color=C.MUTED, width=2, dash="dot"),

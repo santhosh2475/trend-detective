@@ -1,9 +1,68 @@
+# Theme follows the "Strata" Figma Make design (Climate-Dashboard) in its default dark mode:
+# near-black surface, white ink and white active states, hairline rules, thin Geist headings and numbers,
+# Jura UI text, tight 2-4px corners and the dark severity ramp used only as accents.
+# Locked to dark, the design's default. (Adding [theme.light]/[theme.dark] would follow the OS setting.)
+
 [theme]
-base = "light"
-primaryColor = "#2a78d6"
-backgroundColor = "#fcfcfb"
-secondaryBackgroundColor = "#f3f2ee"
-textColor = "#0b0b0b"
+base = "dark"
+
+# Fonts. Body/UI text = Jura (design chips, labels, badges); headings = Geist; code = Geist Mono.
+font = "Jura:https://fonts.googleapis.com/css2?family=Jura:wght@300..700&display=swap"
+headingFont = "Geist:https://fonts.googleapis.com/css2?family=Geist:wght@100..700&display=swap"
+codeFont = "'Geist Mono':https://fonts.googleapis.com/css2?family=Geist+Mono:wght@300..500&display=swap"
+baseFontSize = 14
+baseFontWeight = 400
+codeFontSize = "0.85rem"
+headingFontSizes = ["2.5rem", "1.75rem", "1.3rem", "1.1rem", "1rem", "0.875rem"]
+headingFontWeights = [200, 200, 200, 300, 400, 400]
+metricValueFontSize = "2.25rem"
+metricValueFontWeight = 300
+linkUnderline = true
+
+# Corners: design trays 4px, chips 2px.
+baseRadius = "4px"
+buttonRadius = "4px"
+# Design controls are filled trays without outlines; keylines separate the panel from the page.
+showWidgetBorder = false
+showSidebarBorder = true
+
+# Surfaces and ink (design dark tokens --strata-bg, --chrome-bg 5% white, --strata-ink, --hairline).
+primaryColor = "#f5f5f5"
+backgroundColor = "#0a0a0a"
+secondaryBackgroundColor = "#161616"
+textColor = "#f5f5f5"
+borderColor = "#252525"
+linkColor = "#f5f5f5"
+codeBackgroundColor = "#161616"
+codeTextColor = "#f5f5f5"
+dataframeBorderColor = "#252525"
+dataframeHeaderBackgroundColor = "#161616"
+dataframeHeaderTextColor = "#a3a3a3"
+
+# Severity ramp (design dark --sev-*) for badges and alerts; text shades lightened to pass 4.5:1.
+greenColor = "#5fb886"
+greenTextColor = "#8fd4ab"
+yellowColor = "#d8c95a"
+yellowTextColor = "#e6da8a"
+orangeColor = "#d96b4a"
+orangeTextColor = "#f09a78"
+redColor = "#e5554a"
+redTextColor = "#f28a80"
+blueColor = "#3987e5"
+blueTextColor = "#8dbbf2"
+grayColor = "#a3a3a3"
+grayTextColor = "#c4c4c4"
+
+# Same surface as the page, separated by the sidebar keyline (design left panel).
+[theme.sidebar]
+backgroundColor = "#0a0a0a"
+secondaryBackgroundColor = "#161616"
+textColor = "#f5f5f5"
+borderColor = "#252525"
+primaryColor = "#f5f5f5"
+linkColor = "#f5f5f5"
+codeBackgroundColor = "#161616"
+codeTextColor = "#f5f5f5"
 
 [browser]
 gatherUsageStats = false

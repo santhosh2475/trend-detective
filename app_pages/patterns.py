@@ -13,7 +13,9 @@ res, df = ctx.res, ctx.df
 
 if st.session_state.get("pat_feats") is None or not set(st.session_state["pat_feats"]) <= set(ctx.cols):
     st.session_state["pat_feats"] = res["features"]
-feats = st.multiselect("Variables to combine", ctx.cols, format_func=C.label, key="pat_feats", persist_state="session")
+# Chips, like the design. (A multiselect draws white tag text on the primary colour, which is white in this theme.)
+feats = st.pills("Variables to combine", ctx.cols, selection_mode="multi", format_func=C.label, key="pat_feats",
+                 persist_state="session")
 if len(feats) < 2:
     st.info("Pick at least two variables.", icon=":material/info:")
     st.stop()
@@ -56,7 +58,7 @@ if len(out):
     fig.add_trace(go.Scatter(x=d.index, y=d, mode="lines", line=dict(color=C.BLUE, width=2), name="Distance from normal",
                              hovertemplate="%{y:.1f}<extra></extra>"))
     fig.add_trace(go.Scatter(x=flagged.index, y=flagged["distance"], mode="markers", name="Flagged month",
-                             marker=dict(color=C.ORANGE, size=9, line=dict(color="#fcfcfb", width=2)),
+                             marker=dict(color=C.ORANGE, size=9, line=dict(color=C.SURFACE, width=2)),
                              customdata=np.stack([[C.label(c) for c in flagged["main_driver"]], flagged["main_z"]], axis=1),
                              hovertemplate="%{customdata[0]} %{customdata[1]:+.1f} sigma<extra></extra>"))
     if not np.isnan(thr):
