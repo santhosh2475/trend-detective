@@ -24,9 +24,13 @@ FEATURE_DEFAULT = ["precip_mm", "sm_10_40_mm", "et_mm", "tair_c", "vpd_kpa", "ao
 
 def run(src, name: str = "dataset", alpha: float = 0.05, contamination: float = 0.05,
         horizon: int = 12, forecast_cols: list[str] | None = None, rules: dict | None = None,
-        indices: pd.DataFrame | None = None) -> dict:
+        indices: pd.DataFrame | None = None, period: tuple[int, int] | None = None) -> dict:
     indices = indices if indices is not None else core.load_indices()
     df, quality = core.load_csv(src, indices)
+    if period:
+        df = df.loc[f"{period[0]}-01-01":f"{period[1]}-12-01"]
+        quality.update(start=df.index[0].strftime("%Y-%m"), end=df.index[-1].strftime("%Y-%m"),
+                       n_months=len(df), n_years=round(len(df) / 12, 1))
     cols = core.analysis_columns(df)
     table = core.trend_table(df, cols, alpha)
     feats = [c for c in FEATURE_DEFAULT if c in cols] or cols[:8]
