@@ -1,0 +1,9 @@
+streamlit>=1.40
+pandas>=2.0
+numpy
+scipy
+scikit-learn
+statsmodels
+xarray
+netCDF4
+plotly>=5.20

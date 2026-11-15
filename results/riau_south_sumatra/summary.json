@@ -1,0 +1,69 @@
+{
+  "name": "riau_south_sumatra",
+  "quality": {
+    "start": "2001-01",
+    "end": "2025-12",
+    "n_months": 300,
+    "n_years": 25.0,
+    "unparseable_dates": 0,
+    "duplicate_months_averaged": 0,
+    "missing_rows_inserted": [
+      "2001-03",
+      "2001-04"
+    ],
+    "missing_per_column": {
+      "sm_0_10_mm": 5,
+      "sm_10_40_mm": 5,
+      "rootzone_mm": 5,
+      "sm_0_10_vwc": 5,
+      "sm_10_40_vwc": 5,
+      "et_mm": 5,
+      "tair_c": 5,
+      "vpd_kpa": 5,
+      "precip_mm": 8,
+      "aod": 5,
+      "nino34": 0,
+      "dmi": 0,
+      "fire_count": 2
+    },
+    "warnings": []
+  },
+  "significant": [
+    "et_mm",
+    "vpd_kpa",
+    "aod",
+    "fire_count"
+  ],
+  "forecast_skill": {
+    "fire_count": {
+      "mae": 0.9603810216618078,
+      "mae_climatology": 1.2540249429707389,
+      "skill": 0.23416114883113837,
+      "months": 36
+    },
+    "aod": {
+      "mae": 0.05892983329467802,
+      "mae_climatology": 0.054065732194774736,
+      "skill": -0.08996643349580635,
+      "months": 36
+    },
+    "vpd_kpa": {
+      "mae": 0.1028006653110182,
+      "mae_climatology": 0.1012674100276575,
+      "skill": -0.015140658608153723,
+      "months": 36
+    },
+    "sm_10_40_mm": {
+      "mae": 3.0070248728380067,
+      "mae_climatology": 2.609360155904284,
+      "skill": -0.1523993213562007,
+      "months": 36
+    },
+    "precip_mm": {
+      "mae": 46.407839225605684,
+      "mae_climatology": 46.55826004984346,
+      "skill": 0.0032308085413145227,
+      "months": 36
+    }
+  }
+}

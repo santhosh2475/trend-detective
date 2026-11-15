@@ -1,0 +1,17 @@
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.ipynb_checkpoints/
+
+# Streamlit secrets (config.toml is committed)
+.streamlit/secrets.toml
+
+# Environment / OS
+.env
+.DS_Store
+
+# Symlinks Streamlit creates into .venv on startup
+.agents/skills/developing-with-streamlit
+.claude/skills/developing-with-streamlit

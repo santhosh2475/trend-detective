@@ -1,0 +1,68 @@
+{
+  "name": "central_kalimantan",
+  "quality": {
+    "start": "2001-01",
+    "end": "2025-12",
+    "n_months": 300,
+    "n_years": 25.0,
+    "unparseable_dates": 0,
+    "duplicate_months_averaged": 0,
+    "missing_rows_inserted": [
+      "2001-03",
+      "2001-04"
+    ],
+    "missing_per_column": {
+      "sm_0_10_mm": 5,
+      "sm_10_40_mm": 5,
+      "rootzone_mm": 5,
+      "sm_0_10_vwc": 5,
+      "sm_10_40_vwc": 5,
+      "et_mm": 5,
+      "tair_c": 5,
+      "vpd_kpa": 5,
+      "precip_mm": 8,
+      "aod": 5,
+      "nino34": 0,
+      "dmi": 0,
+      "fire_count": 2
+    },
+    "warnings": []
+  },
+  "significant": [
+    "et_mm",
+    "vpd_kpa",
+    "fire_count"
+  ],
+  "forecast_skill": {
+    "fire_count": {
+      "mae": 0.6378500735215804,
+      "mae_climatology": 1.3634751326547898,
+      "skill": 0.5321879671691278,
+      "months": 36
+    },
+    "aod": {
+      "mae": 0.11356566627283463,
+      "mae_climatology": 0.07644951665660124,
+      "skill": -0.4854988133274023,
+      "months": 36
+    },
+    "vpd_kpa": {
+      "mae": 0.09385243098238509,
+      "mae_climatology": 0.10537667839165464,
+      "skill": 0.10936240907534833,
+      "months": 36
+    },
+    "sm_10_40_mm": {
+      "mae": 2.914072135762952,
+      "mae_climatology": 2.657979523749399,
+      "skill": -0.09634860228430342,
+      "months": 36
+    },
+    "precip_mm": {
+      "mae": 55.35188065768176,
+      "mae_climatology": 60.98401214820217,
+      "skill": 0.09235423010269173,
+      "months": 36
+    }
+  }
+}
