@@ -8,7 +8,8 @@ import streamlit as st
 
 from tdui import common as C
 
-st.set_page_config(page_title="Trend Detective", page_icon=":material/travel_explore:", layout="wide")
+st.set_page_config(page_title="Trend Detective", page_icon=":material/public:", layout="wide")
+st.logo(":material/public:", size="large")  # globe mark in the top-left, like the design's logo
 
 PAGES = {
     "": [
@@ -40,7 +41,7 @@ PAGES = {
 }
 
 page = st.navigation(PAGES, position="sidebar")
-st.sidebar.subheader(":material/travel_explore: Trend Detective", anchor=False)
+st.sidebar.subheader("Trend Detective", anchor=False)
 ctx = C.sidebar()
 
 # toast each critical alert once per dataset
